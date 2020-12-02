@@ -1,6 +1,5 @@
 function generateDogs(){
     let url = 'https://dog.ceo/api/breeds/image/random/' + $('.numberInput').val();
-    console.log(url);
     fetch(url)
     .then(response => response.json())
     .then(responseJson => displayImages(responseJson))
@@ -10,9 +9,7 @@ function generateDogs(){
 function displayImages(responseJson) {
     console.log(responseJson);
     let num = $('.numberInput').val();
-    console.log(num);
 if($('.numberInput').val() == 1){
-    console.log('SUCCESS');
     $('.results-img').replaceWith(
         `<img src='${responseJson.message}' class = 'results-img'>`
     )
@@ -21,7 +18,6 @@ if($('.numberInput').val() == 1){
     //let response = jquery.parseJSON(responseJson);
     let message = responseJson.message;
     for(let i = 0;  i < message.length; i++){
-        console.log(message[i]);
         $('.results-img').append(`<img src='${message[i]}' class = 'results-img'>`);
     }
 }
